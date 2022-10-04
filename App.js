@@ -1,9 +1,8 @@
-import ShopNavigation from './Navigation/ShopNavigation';
-
+import Navigation from "./Navigation/index";
 
 export default function App() {
   return (
-    <ShopNavigation />
+    <Navigation />
   );
 }
 

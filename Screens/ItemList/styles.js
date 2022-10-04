@@ -6,6 +6,11 @@ export const styles = StyleSheet.create({
       backgroundColor: '#fff',
       alignItems: 'center',
       justifyContent: 'center',
+      width: '100%',
+      paddingVertical: 10,
     },
+    flatList: {
+      width: '95%',
+    }
   });
   
