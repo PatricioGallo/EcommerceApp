@@ -3,11 +3,11 @@ import {View , Text} from 'react-native';
 import {styles} from './styles';
 import ProductItem from '../../Components/ProductItem/ProductItem';
 import { Breads } from '../../Data/Breads';
+import { useSelector } from 'react-redux';
 
-const Item = ({route}) => {
+const Item = () => {
 
-  const productFind = Breads.find( (bread) => { return bread.id === route.params.productId });
-
+  const productFind = useSelector( state => state.breads.selected)
 
   return (
     <View style={styles.container}>

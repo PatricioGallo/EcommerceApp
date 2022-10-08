@@ -14,6 +14,15 @@ export const styles = StyleSheet.create({
         marginVertical: 5,
         borderRadius: 10,
         marginHorizontal: 5,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+
+        elevation: 5,
     },
     text:{
         fontSize: 20,

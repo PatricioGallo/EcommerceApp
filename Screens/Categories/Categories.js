@@ -2,27 +2,29 @@ import React from 'react'
 import {View,FlatList, TextInput, Text} from 'react-native';
 import {styles} from './styles';
 import CategoryItem from '../../Components/CategoryItem/CategoryItem';
-import {CategoriesList} from '../../Data/CategoriesList'
 import { Ionicons } from '@expo/vector-icons'; 
 import { Breads } from '../../Data/Breads';
 import ProductCategory from '../../Components/ProductCategory/ProductCategory';
-
-
+import { useSelector , useDispatch} from 'react-redux';
+import { selectCategory } from '../../store/action/category.action';
+import { selectBread } from '../../store/action/bread.action';
 
 const Categories = ({navigation}) => {
 
   const breadsFilter = Breads.filter( (item) => item.offer === true);
+  const categories = useSelector(state => state.categories.categories);
+  const dispatch = useDispatch();
 
   const onSelected = (item) =>{
+    dispatch(selectCategory(item.id));
     navigation.navigate('ItemList',{
-      categoryId: item.id,
       name: item.title,
     })
   };
 
   const onSelectedProducts = (item) => {
+    dispatch(selectBread(item.id));
     navigation.navigate('Item',{
-      productId: item.id,
       name: item.title,
     })
   };
@@ -50,7 +52,7 @@ const Categories = ({navigation}) => {
 
       <View style={styles.containerFlat}>
         <FlatList 
-          data={CategoriesList}
+          data={categories}
           keyExtractor= {item => item.id}
           renderItem={RenderCategoryList}
           style={styles.flatList}
@@ -64,6 +66,7 @@ const Categories = ({navigation}) => {
       </View>
 
       <View style={styles.containerFlat}>
+
       <FlatList 
           data={breadsFilter}
           keyExtractor= {item => item.id}
