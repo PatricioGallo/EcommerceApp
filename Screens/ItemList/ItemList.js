@@ -15,8 +15,9 @@ const ItemList = ({navigation}) => {
   const dispatch = useDispatch();
   console.log(selectedCategory)
 
-  useEffect(() => 
-    dispatch(filteredBread(selectedCategory.id)),[]); 
+  useEffect(() => {
+    dispatch(filteredBread(selectedCategory.id))}
+    ,[]); 
 
   const onSelected = (item) => {
     dispatch(selectBread(item.id));
